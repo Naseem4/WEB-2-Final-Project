@@ -1,0 +1,67 @@
+.offer-card {
+  background: rgba(18, 18, 18, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 24px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.08) 40%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.offer-card:hover::before {
+  transform: translateX(100%);
+}
+
+.offer-card:hover {
+  border-color: rgba(163, 255, 72, 0.35);
+  box-shadow: 0 0 20px rgba(163, 255, 72, 0.08);
+}
+
+.offer-card.active {
+  border-color: #b7ff3c;
+  box-shadow: 0 0 24px rgba(183, 255, 60, 0.2);
+}
+
+.offer-card h3 {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.offer-card p {
+  color: #f1f1f1;
+  font-size: 14px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.offer-card ul {
+  padding-left: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.offer-card li {
+  color: #caff9f;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
