@@ -39,10 +39,13 @@ const handleGenerate = async () => {
   localStorage.setItem("userInfo", JSON.stringify(userData));
 
   try {
+    const token = localStorage.getItem("token");
+
     const response = await fetch("http://localhost:5000/api/plan", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(userData),
     });
@@ -64,6 +67,7 @@ const handleGenerate = async () => {
   }
 };
 
+  
   return (
     <div className="min-h-screen bg-[#050907] text-white">
       <header className="border-b border-white/10 bg-[#0d1210]">
