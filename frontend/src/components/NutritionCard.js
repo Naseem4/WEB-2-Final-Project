@@ -27,7 +27,6 @@ const cardStyle = {
     padding: "20px",
     borderRadius: "20px",
     border: "1px solid rgba(0, 255, 127, 0.3)",
-    boxShadow: "0 0 15px rgba(0, 255, 127, 0.2)",
     textAlign: 'center',
     flex: 1
 

@@ -34,7 +34,7 @@ function AskAICard() {
 
             .then(function (data) {
 
-                setAnswer(data.answer);
+                setAnswer(data.answer || data.message || "No answer returned");
                 setLoading(false);
 
             })

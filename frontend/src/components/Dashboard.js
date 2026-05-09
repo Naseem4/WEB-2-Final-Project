@@ -97,8 +97,8 @@ function Dashboard() {
                 <div style={{
                     background: "rgba(20, 20, 20, 0.8)",
                     padding: "20px", borderRadius: "20px" ,
-                    border: "1px solid rgba(0,255,127,0.3)",
-                    boxShadow: "0 0 15px rgba(0,255,127,0.2)",
+                    border: "1px solid rgba(0,255,127,0.3)"
+
                 }}>
                     <h3>Performance Trend</h3>
                     <WeeklyProgress data={user.weeklyProgress} />
@@ -108,8 +108,8 @@ function Dashboard() {
                 <div style={{
                     background: "rgba(20, 20, 20, 0.8)",
                     padding: "20px", borderRadius: "20px",
-                    border: "1px solid rgba(0,255,127,0.3)",
-                    boxShadow: "0 0 15px rgba(0, 255, 127, 0.2)",
+                    border: "1px solid rgba(0,255,127,0.3)"
+
                 }}>
                     <h3>Muscle Focus</h3>
                     <HorizontalBars data={user.categories } />
@@ -121,7 +121,6 @@ function Dashboard() {
                     padding: "20px",
                     borderRadius: "20px",
                     border: "1px solid rgba(0, 255, 127, 0.3)",
-                    boxShadow: "0 0 15px rgba(0, 255, 127, 0.2)",
                     textAlign: "center"
                 }}>
                     <AskAICard />
