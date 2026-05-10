@@ -1,0 +1,76 @@
+.comparison {
+  margin-top: 22px;
+  background: rgba(20, 20, 20, 0.78);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.comparison-head {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.comparison-head h2 {
+  color: #fff;
+  font-size: 18px;
+  margin: 0 0 5px;
+}
+
+.comparison-head p {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 12px;
+  margin: 0;
+}
+
+.comparison-table {
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 0.7fr);
+  align-items: center;
+  min-height: 42px;
+  background: rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.comparison-row:last-child {
+  border-bottom: none;
+}
+
+.comparison-row span {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.comparison-row span:first-child {
+  text-align: left;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.comparison-header {
+  background: rgba(200, 255, 62, 0.075);
+}
+
+.comparison-header span {
+  color: #c8ff3e;
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.comparison-row .yes {
+  color: #c8ff3e;
+  font-weight: 900;
+}
+
+.comparison-row .no {
+  color: rgba(255, 255, 255, 0.22);
+}
