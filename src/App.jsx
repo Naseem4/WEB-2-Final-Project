@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
   ArrowLeft,
-  Sparkles  ,
+  Sparkles,
   Scale,
   User,
   Target,
@@ -26,48 +26,47 @@ export default function InformationUsers() {
     { title: "General Fitness", desc: "Improve overall health", icon: Activity },
   ];
 
-const handleGenerate = async () => {
-  const userData = {
-    weight,
-    height,
-    age,
-    gender,
-    goal,
-    days,
+  const handleGenerate = async () => {
+    const userData = {
+      weight,
+      height,
+      age,
+      gender,
+      goal,
+      days,
+    };
+
+    localStorage.setItem("userInfo", JSON.stringify(userData));
+
+    try {
+      const token = localStorage.getItem("token");
+
+      const response = await fetch("http://localhost:5000/api/plan", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to generate plan");
+      }
+
+      const data = await response.json();
+
+      localStorage.setItem("generatedPlan", JSON.stringify(data));
+
+      window.location.pathname = "/plan";
+    } catch (error) {
+      console.error(error);
+      alert("Backend is not connected yet, data saved locally.");
+
+      window.location.pathname = "/plan";
+    }
   };
 
-  localStorage.setItem("userInfo", JSON.stringify(userData));
-
-  try {
-    const token = localStorage.getItem("token");
-
-    const response = await fetch("http://localhost:5000/api/plan", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(userData),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to generate plan");
-    }
-
-    const data = await response.json();
-
-    localStorage.setItem("generatedPlan", JSON.stringify(data));
-
-    window.location.pathname = "/plan";
-  } catch (error) {
-    console.error(error);
-    alert("Backend is not connected yet, data saved locally.");
-
-    window.location.pathname = "/plan";
-  }
-};
-
-  
   return (
     <div className="min-h-screen bg-[#050907] text-white">
       <header className="border-b border-white/10 bg-[#0d1210]">
@@ -204,11 +203,11 @@ const handleGenerate = async () => {
           </Card>
 
           <button
-  onClick={handleGenerate}
-  className="group mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-lime-400 py-4 text-lg font-extrabold text-black shadow-xl shadow-lime-400/20 transition hover:scale-[1.02] hover:bg-lime-300"
->
-  Generate Plan
-</button>
+            onClick={handleGenerate}
+            className="group mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-lime-400 py-4 text-lg font-extrabold text-black shadow-xl shadow-lime-400/20 transition hover:scale-[1.02] hover:bg-lime-300"
+          >
+            Generate Plan
+          </button>
         </div>
       </main>
     </div>
