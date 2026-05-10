@@ -338,7 +338,6 @@ function OffersPage() {
       handleSubmit();
     }
   };
-
   const handleSubmit = async () => {
     setLoading(true);
     setError(null);
@@ -361,10 +360,19 @@ function OffersPage() {
     }
 
     try {
+      const token = localStorage.getItem("token"); // ←  التوكن
+
+      if (!token) {
+        setError("You must be logged in to submit.");
+        setLoading(false);
+        return;
+      }
+
       const res = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // ← هون التعديل
         },
         body: JSON.stringify(payload),
       });

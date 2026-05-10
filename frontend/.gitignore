@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-node_modules
-.env
-.idea
->>>>>>> origin/FE
 # Logs
 logs
 *.log
