@@ -19,10 +19,38 @@ function SignUp() {
 
   const handleGoogleSignUp = async () => {
     try {
+      // Step 1: Sign in with Google via Firebase
       const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      console.log('User signed up:', user.displayName);
-      navigate('/home'); // غيّر المسار حسب صفحتك الرئيسية
+
+      // Step 2: Get Firebase ID token
+      const token = await result.user.getIdToken();
+
+      // Step 3: Send token to backend to register/login user
+      const response = await fetch('http://localhost:5000/api/auth/google', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error('Backend error:', data.error);
+        return;
+      }
+
+      // Step 4: Save user info in localStorage
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', token);
+
+      // Step 5: Redirect based on role
+      if (data.user.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/home');
+      }
     } catch (error) {
       console.error('Error signing up:', error.message);
     }
