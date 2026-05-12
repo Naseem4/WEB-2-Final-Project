@@ -17,24 +17,19 @@ function OfferCard({ offer, selected, onSelect }: Props) {
       onClick={() => onSelect(offer.id)}
     >
       {offer.badge && <div className="popular-badge">{offer.badge}</div>}
-
       <div className="card-check">✓</div>
-
       <div className="card-top">
         <div>
           <div className="card-tag">{offer.tag}</div>
           <h3>{offer.title}</h3>
           <p>{offer.subtitle}</p>
         </div>
-
         <div className="price-box">
           <strong>${offer.price}</strong>
           <span>/mo</span>
         </div>
       </div>
-
-      {offer.save && <div className="save-badge">{offer.save}</div>}
-
+      {offer.discount && <div className="save-badge">{offer.discount}</div>}
       <ul>
         {offer.features.map((feature, index) => (
           <li

@@ -40,7 +40,7 @@ export const offers: Offer[] = [
     subtitle: "Complete fitness package",
     price: 59,
     badge: "Best Value",
-    save: "Save 20%",
+    discount: "Save 20%",
     features: [
       { text: "Workout + diet plan", included: true },
       { text: "Full progress tracking", included: true },

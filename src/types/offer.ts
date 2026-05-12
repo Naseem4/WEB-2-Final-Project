@@ -10,7 +10,12 @@ export type Offer = {
   subtitle: string;
   price: number;
   badge?: string;
-  save?: string;
+  /**
+   * @field discount
+   * Renamed from "save" — matches the backend Offer model.
+   * Displayed below the price on the card (e.g. "Save 20%").
+   */
+  discount?: string;
   features: OfferFeature[];
   showDiet: boolean;
   showTraining: boolean;
